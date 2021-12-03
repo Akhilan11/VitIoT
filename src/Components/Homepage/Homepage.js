@@ -80,10 +80,14 @@ function Homepage() {
                                 </Card.Text>
                                 <Row className="justify-content-md-center">
                                     <Col md={2}>
+                                    <Link to="doctor-signup">
                                         <Button style={{marginRight:"2em"}} variant="primary" >Request</Button> <br />
+                                    </Link>
                                     </Col>
                                     <Col md={2}>
+                                    <Link to="doctor-login">
                                         <Button style={{marginLeft:"1em"}} variant="success">Login</Button>
+                                    </Link>
                                     </Col>
                                 </Row>
                             </Card.Body>
@@ -101,12 +105,14 @@ function Homepage() {
                                 </Card.Text>
                                 <Row className="justify-content-md-center">
                                     <Col md={2}>
-                                    <Link to="/signup">
+                                    <Link to="/patient-signup">
                                         <Button style={{marginRight:"1em"}} variant="primary" >Signup</Button> <br />
                                     </Link>
                                     </Col>
                                     <Col md={2}>
+                                    <Link to="patient-login">
                                         <Button style={{marginLeft:"1em"}} variant="success">Login</Button>
+                                    </Link>
                                     </Col>
                                 </Row>
                             </Card.Body>
@@ -118,5 +124,9 @@ function Homepage() {
         </div>
     )
 }
+
+<script>
+  AOS.init();
+</script>
 
 export default Homepage
