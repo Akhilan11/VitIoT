@@ -3,9 +3,10 @@ import { Card } from 'react-bootstrap';
 import { Form } from 'react-bootstrap';
 import { useState,useEffect } from "react";
 import { collection, addDoc, setDoc, doc } from "firebase/firestore"; 
+
 import { Button, Col, Row } from 'react-bootstrap';
 import Signup from '../Loginpage/doctor-signup.png';
-import {db} from './firebase';
+import {db,auth} from './firebase';
 function DoctorSignup() {
 
     const [name,setName]=useState("");
@@ -15,9 +16,9 @@ function DoctorSignup() {
     const [years,setYears]=useState("");
     const [email,setEmail]=useState("");
     const [pwd,setPwd]=useState("");
+
     const handleSubmit=(e)=>{
         e.preventDefault();
-
         // const coll = collection(db, "DoctorRequests") 
         setDoc(doc(db, "DoctorRequests", email),{
             name:name,
@@ -26,7 +27,7 @@ function DoctorSignup() {
             reg:reg,
             years:years,
             email:email,
-            pwd:pwd,
+            pwd:pwd
         })
 
         .then(()=>{

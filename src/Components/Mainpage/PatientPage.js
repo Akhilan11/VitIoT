@@ -37,6 +37,7 @@ function MyVerticallyCenteredModal(props) {
  const user=auth.currentUser;
   const handleSubmitAppt=(e)=>{
     e.preventDefault();
+
     // const coll = collection(db, "DoctorRequests") 
     setDoc(doc(db, "Appointments",user.uid),{
         name:name,
@@ -269,17 +270,19 @@ function PatientPage() {
                     <Card.Body>
                     <div className = "Card-Text" style={{float: "right"}}>
                     <Card.Text style={{marginRight:"5em"}}>
-                        <h2>Name : {dat.name}</h2>
+                        <h2>Name : {dat.name} </h2>
                         <h2>degree : {dat.degree}</h2>
                         <br/><br/><br/>
                         <p>Specialization : {dat.spl}</p>
                         <p>Years of Experience : {dat.years}</p>
+                        <p>uid:{dat.uid}</p>
                     </Card.Text>
                     </div>
                     </Card.Body>
                     </Col>
                     <hr/>
-                    <Button variant="primary" onClick={() => setModalShow(true)}>Get Appoinment</Button>
+                    
+                    <Button variant="primary" onClick={() => "return {dat.uid}" }>Get Appoinment</Button>
 
                     <MyVerticallyCenteredModal
                     show={modalShow}

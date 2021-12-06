@@ -42,11 +42,23 @@ export function logout(){
     return signOut(auth);
 }
 
+// export function useAuth(){
+//     const [currentUser, setCurrentUser] = useState();
+//     useEffect(() => {
+        
+//         const unsub = onAuthStateChanged(auth,user => setCurrentUser(user));
+//         return unsub;
+//     }, [])
+//     return currentUser;
+// }
+
 export function useAuth(){
     const [currentUser, setCurrentUser] = useState();
-    useEffect(() => {
-        const unsub = onAuthStateChanged(auth,user => setCurrentUser(user));
-        return unsub;
-    }, [])
-    return currentUser;
+useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      setCurrentUser(user);
+     // setLoading(false);
+    });
+    return unsubscribe;
+  }, [currentUser]);
 }
